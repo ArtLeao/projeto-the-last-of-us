@@ -1,0 +1,113 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+main::after{
+    content: '';
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* funciona por porcentagem */
+    justify-content: space-evenly;
+}
+
+.informacoes .logo{
+    max-width: 550px;
+    filter: invert(1);
+    margin-bottom: 80px;
+}
+
+.informacoes .descricao{
+    font-size: 24px;
+    color: white;
+    width: 49%;
+    line-height: 30px; /*defina a altura da linha*/
+}
+
+.botoes-carrossel{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.botoes-carrossel .botao{
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.botoes-carrossel .botao.selecionado{
+    background-color: rgb(79, 79, 219);
+}
+
+.menu-lateral{
+     position: fixed; /*tira o elemento da posição normal e o coloca onde vc quiser com o top, left, bottom right */
+    top: 0;
+    right: 0;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    filter: invert(1);
+}
+
+.menu-lateral ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-lateral .icon{
+    width: 30px;
+    transition: 0.5s ease-in-out;
+}
+
+.menu-lateral .icon:hover{
+    transform: scale(1.5);
+}
+
+.carrossel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; /*joga o conteúdo para baixo da página com valor negativo, e para cima com valor positivo*/
+}
+
+.carrossel .imagem{
+    width: 100%;
+    height: 100vh; /* para aumentar o tamanho de imagens sem destorcer-la, é necessário usar o object-fit: cover*/
+    object-fit: cover;
+    display: none; /*esconde o elemento*/
+    animation: mudarImagem 0.7s;
+}
+
+.carrossel .imagem.ativa{
+    display: block;
+}
+
+@keyframes mudarImagem{
+    from{
+        opacity: 0.60;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
